@@ -1,5 +1,4 @@
 import angular from 'angular';
-import 'oclazyload';
 import 'angular-ui-router';
 import 'ngVue';
 import 'ngVue/build/plugins';
@@ -12,7 +11,6 @@ import AccountPage from './routes/account/Account.vue';
 angular
   .module('app', [
     'ui.router',
-    'oc.lazyLoad',
     'ngVue',
     'ngVue.plugins',
 
@@ -22,3 +20,11 @@ angular
   ])
   .value('Account', AccountPage)
   .value('Intent', () => import('./routes/intent/Intent.vue'))
+  .run(run)
+
+
+function run($state) {
+  $state.go('account');
+}
+
+run.$inject = ['$state']

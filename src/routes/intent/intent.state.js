@@ -1,26 +1,17 @@
 import angular from 'angular';
 
+const loadIntentControllerHandler = [
+  () => {
+    return import('./intent.controller')
+  }
+];
+
 const views = {
   'container@': {
     controllerAs: 'vm',
-    template: `
-      <vue-component name="Intent"></vue-component>
-    `,
+    template: `<vue-component name="Intent"></vue-component>`,
     resolve: {
-      loadIntentController:
-        [
-          '$q',
-          '$ocLazyLoad',
-          ($q, $ocLazyLoad) => {
-            return $q((resolve) => {
-              require.ensure([], () => {
-                let m = require('./intent.controller').default;
-                $ocLazyLoad.load({ name: m.name });
-                resolve(m.controller)
-              });
-            })
-          }
-        ]
+      loadIntentController: loadIntentControllerHandler
     }
   }
 };
