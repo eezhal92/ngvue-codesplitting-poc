@@ -19,7 +19,7 @@ angular
     intentRoutes
   ])
   .value('Account', AccountPage)
-  .value('Intent', () => import('./routes/intent/Intent.vue'))
+  .value('Intent', () => import(/* webpackChunkName: "intent" */ './routes/intent/Intent.vue'))
   .run(run)
 
 
