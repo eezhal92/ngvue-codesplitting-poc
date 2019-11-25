@@ -1,11 +1,17 @@
 <template>
   <div>
-    Account {{ name }}
+    <div>Account {{ name }}</div>
+
+    <Users />
   </div>
 </template>
 
 <script>
 export default {
+  components: {
+    Users: () => import('../../components/Users.vue'),
+  },
+
   props: {
     name: {
       default: 'Alex',
