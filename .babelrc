@@ -1,0 +1,12 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "browsers": [">0.25%", "ie > 10", "not dead"]
+        }
+      }
+    ]
+  ]
+}
