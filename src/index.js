@@ -8,7 +8,6 @@ import accountRoutes from './routes/account/account.state';
 import intentRoutes from './routes/intent/intent.state';
 
 import AccountPage from './routes/account/Account.vue';
-import IntentPage from './routes/intent/Intent.vue';
 
 angular
   .module('app', [
@@ -22,4 +21,4 @@ angular
     intentRoutes
   ])
   .value('Account', AccountPage)
-  .value('Intent', IntentPage)
+  .value('Intent', () => import('./routes/intent/Intent.vue'))
