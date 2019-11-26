@@ -6,8 +6,6 @@ import 'ngVue/build/plugins';
 import accountRoutes from './routes/account/account.state';
 import intentRoutes from './routes/intent/intent.state';
 
-import AccountPage from './routes/account/Account.vue';
-
 angular
   .module('app', [
     'ui.router',
@@ -18,7 +16,7 @@ angular
     accountRoutes,
     intentRoutes
   ])
-  .value('Account', AccountPage)
+  .value('Account', () => import(/* webpackChunkName: "account" */ './routes/account/Account.vue'))
   .value('Intent', () => import(/* webpackChunkName: "intent" */ './routes/intent/Intent.vue'))
   .run(run)
 

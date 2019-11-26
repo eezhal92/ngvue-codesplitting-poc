@@ -9,7 +9,7 @@
 <script>
 export default {
   components: {
-    Users: () => import('../../components/Users.vue'),
+    Users: () => import(/* webpackChunkName: "users" */ '../../components/Users.vue'),
   },
 
   props: {

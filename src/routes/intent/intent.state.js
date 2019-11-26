@@ -2,7 +2,7 @@ import angular from 'angular';
 
 const loadIntentControllerHandler = [
   () => {
-    return import('./intent.controller')
+    return import(/* webpackChunkName: "intent" */ './intent.controller')
   }
 ];
 
